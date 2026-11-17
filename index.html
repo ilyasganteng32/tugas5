@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 5 - Tabel Angka 1-100</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 30px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        .tabel {
+            display: grid;
+            grid-template-columns: repeat(10, 42px);
+            grid-auto-rows: 42px;
+            justify-content: center;
+            margin: 20px auto;
+            width: max-content;
+            border: 1px solid gray;
+        }
+
+        .angka {
+            border: 1px solid gray;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+        }
+
+        .angka:hover {
+            background-color: #ddd;
+        }
+
+        .merah { background-color: #ed3025; }
+        .kuning { background-color: #ffff45; }
+        .aqua { background-color: #65eeee; }
+        .hijau { background-color: #267c20; color: white; }
+
+        .form-container {
+            display: none;
+            text-align: left;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        fieldset {
+            padding: 15px;
+        }
+
+        input, textarea, select {
+            margin: 5px 0;
+            padding: 5px;
+        }
+
+        textarea {
+            width: 280px;
+            height: 70px;
+        }
+
+        button {
+            cursor: pointer;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>TABEL ANGKA 1-100</h2>
+
+    <div class="tabel" id="tabel"></div>
+
+    <!-- FORM LOGIN -->
+    <div class="form-container" id="login">
+        <h2>Form Login</h2>
+        <fieldset>
+            <legend>Login</legend>
+
+            <form>
+                <label>Username:</label>
+                <input type="text" placeholder="Masukkan username">
+                <br><br>
+
+                <label>Password:</label>
+                <input type="password" placeholder="Masukkan password">
+                <br><br>
+
+                <input type="checkbox"> Remember me
+                <br><br>
+
+                <button type="button" onclick="alert('Login berhasil!')">
+                    Login
+                </button>
+                <button type="reset">Reset</button>
+            </form>
+        </fieldset>
+    </div>
+
+    <!-- FORM CONTACT -->
+    <div class="form-container" id="contact">
+        <h2>Form Contact</h2>
+        <fieldset>
+            <legend>Contact</legend>
+
+            <form>
+                <label>Nama:</label>
+                <input type="text" placeholder="Masukkan nama">
+                <br><br>
+
+                <label>Email:</label>
+                <input type="email" placeholder="Masukkan email">
+                <br><br>
+
+                <label>Subject:</label>
+                <input type="text" placeholder="Masukkan subject">
+                <br><br>
+
+                <label>Pesan:</label>
+                <br>
+                <textarea placeholder="Tulis pesan Anda..."></textarea>
+                <br>
+
+                <button type="button" onclick="alert('Pesan terkirim!')">
+                    Send
+                </button>
+                <button type="reset">Reset</button>
+            </form>
+        </fieldset>
+    </div>
+
+    <!-- FORM PENDAFTARAN -->
+    <div class="form-container" id="pendaftaran">
+        <h2>Form Pendaftaran</h2>
+        <fieldset>
+            <legend>Pendaftaran Siswa</legend>
+
+            <form>
+                <label>Nama Lengkap:</label>
+                <input type="text" placeholder="Masukkan nama lengkap">
+                <br><br>
+
+                <label>NIS:</label>
+                <input type="number" placeholder="Masukkan NIS">
+                <br><br>
+
+                <label>Jenis Kelamin:</label>
+                <input type="radio" name="gender" value="Laki-laki">
+                Laki-laki
+                <input type="radio" name="gender" value="Perempuan">
+                Perempuan
+                <br><br>
+
+                <label>Tanggal Lahir:</label>
+                <input type="date">
+                <br><br>
+
+                <label>Jurusan:</label>
+                <select>
+                    <option>-- Pilih Jurusan --</option>
+                    <option>RPL</option>
+                    <option>TKJ</option>
+                    <option>DKV</option>
+                    <option>Akuntansi</option>
+                </select>
+                <br><br>
+
+                <label>Alamat:</label>
+                <br>
+                <textarea placeholder="Masukkan alamat lengkap"></textarea>
+                <br><br>
+
+                <label>Foto:</label>
+                <input type="file" accept="image/*">
+                <br><br>
+
+                <input type="checkbox">
+                Saya menyetujui data yang saya masukkan
+                <br><br>
+
+                <button type="button" onclick="alert('Pendaftaran berhasil!')">
+                    Daftar
+                </button>
+                <button type="reset">Reset</button>
+            </form>
+        </fieldset>
+    </div>
+
+    <!-- FORM URL -->
+    <div class="form-container" id="url">
+        <h2>Form URL</h2>
+        <fieldset>
+            <legend>URL</legend>
+
+            <form>
+                <label>URL:</label>
+                <input type="url" placeholder="Masukkan URL">
+                <br><br>
+
+                <label>Tanggal:</label>
+                <input type="date">
+                <br><br>
+
+                <label>Waktu:</label>
+                <input type="time">
+                <br><br>
+
+                <label>Jumlah:</label>
+                <input type="number" min="1" style="width: 60px">
+                <br><br>
+
+                <button type="button" onclick="alert('Data terkirim!')">
+                    Send
+                </button>
+                <button type="reset">Reset</button>
+            </form>
+        </fieldset>
+    </div>
+
+    <script>
+        const tabel = document.getElementById("tabel");
+
+        // Membuat tabel angka 1-100
+        for (let i = 1; i <= 100; i++) {
+
+            const kotak = document.createElement("div");
+            kotak.className = "angka";
+            kotak.textContent = i;
+
+            // Warna merah untuk Form Login
+            if ([4,5,6,7,8,14,15,16,17,18].includes(i)) {
+                kotak.classList.add("merah");
+                kotak.onclick = () => tampilkanForm("login");
+            }
+
+            // Warna kuning untuk Form Contact
+            else if ([11,12,21,22,31,32,41,42].includes(i)) {
+                kotak.classList.add("kuning");
+                kotak.onclick = () => tampilkanForm("contact");
+            }
+
+            // Warna aqua untuk Form Pendaftaran
+            else if ([55,56,57,65,66,67,75,76,77].includes(i)) {
+                kotak.classList.add("aqua");
+                kotak.onclick = () => tampilkanForm("pendaftaran");
+            }
+
+            // Warna hijau untuk Form URL
+            else if ([39,49,59,69].includes(i)) {
+                kotak.classList.add("hijau");
+                kotak.onclick = () => tampilkanForm("url");
+            }
+
+            tabel.appendChild(kotak);
+        }
+
+        // Fungsi menampilkan form
+        function tampilkanForm(id) {
+
+            const semuaForm = document.querySelectorAll(".form-container");
+
+            semuaForm.forEach(form => {
+                form.style.display = "none";
+            });
+
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
